@@ -13,7 +13,7 @@ function getComputerChoice(OPTIONS_COUNT){
 }
 
 function getHumanChoice(){
-    let choice = prompt("What do you choose?");
+    let choice = prompt("What do you choose?").toLowerCase();
     
     if (choice == "rock" || choice == "paper" || choice == "scissors"){
         return choice;
@@ -62,7 +62,7 @@ function playGame(){
         }
     }
     for (i =0; i<5; i++){
-        humanChoice = getHumanChoice().toLowerCase();
+        humanChoice = getHumanChoice();
         computerChoice = getComputerChoice(OPTIONS_COUNT);
 
         playRound(humanChoice,computerChoice);
