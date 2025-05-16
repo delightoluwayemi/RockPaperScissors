@@ -15,7 +15,7 @@ function getComputerChoice(OPTIONS_COUNT){
 function getHumanChoice(){
     let choice = prompt("What do you choose?");
     
-    if (choice == "Rock" || choice == "Paper" || choice == "Scissors"){
+    if (choice == "rock" || choice == "paper" || choice == "scissors"){
         return choice;
     }
 }
@@ -29,35 +29,35 @@ function playGame(){
         if (humanChoice == 'rock') {
             switch (computerChoice) {
                 case "Rock":
-                    console.log("It is a tie");
+                    console.log("The round is a tie");
                 case "Paper":
-                    console.log("Paper beats Rock, Computer wins");
+                    console.log("Paper beats Rock, Computer wins the round");
                     computerScore += 1;
                 case "Scissors":
-                    console.log("Rock beats Scissors, Player wins");
+                    console.log("Rock beats Scissors, Player wins the round");
                     humanScore += 1;
             }
         } else if (humanChoice == 'paper') {
             switch (computerChoice) {
                 case "Rock":
-                    console.log("Paper beats Rock, Player wins");
+                    console.log("Paper beats Rock, Player wins the round");
                     humanScore += 1;
                 case "Paper":
-                    console.log("It is a tie");
+                    console.log("The round is a tie");
                 case "Scissors":
-                    console.log("Scissors beats Paper, Computer wins");
+                    console.log("Scissors beats Paper, Computer wins the round");
                     computerScore += 1;
             }
         } else if (humanChoice == 'scissors') {
             switch (computerChoice) {
                 case "Rock":
-                    console.log("Rock beats Scissors, Computer wins");
+                    console.log("Rock beats Scissors, Computer wins the round");
                     computerScore += 1;
                 case "Paper":
-                    console.log("Scissors beats Paper, Player wins");
+                    console.log("Scissors beats Paper, Player wins the round");
                     humanScore += 1;
                 case "Scissors":
-                    console.log("It is a tie");
+                    console.log("The round is a tie");
             }
         }
     }
