@@ -11,14 +11,14 @@ function getComputerChoice(OPTIONS_COUNT){
         return "Scissors";
     }
 }
-
+/*
 function getHumanChoice(){
     let choice = prompt("What do you choose?").toLowerCase();
     
     if (choice == "rock" || choice == "paper" || choice == "scissors"){
         return choice;
     }
-}
+}*/
 
 const display = document.createElement("div");
 
@@ -27,34 +27,43 @@ const playRound = function (humanChoice, computerChoice) {
         switch (computerChoice) {
             case "Rock":
                 console.log("The round is a tie");
+                break
             case "Paper":
                 console.log("Paper beats Rock, Computer wins the round");
-                computerScore += 1;
+                //computerScore += 1;
+                break
             case "Scissors":
                 console.log("Rock beats Scissors, Player wins the round");
-                humanScore += 1;
+                //humanScore += 1;
+                break
         }
     } else if (humanChoice == 'paper') {
         switch (computerChoice) {
             case "Rock":
                 console.log("Paper beats Rock, Player wins the round");
-                humanScore += 1;
+                //humanScore += 1;
+                break
             case "Paper":
                 console.log("The round is a tie");
+                break
             case "Scissors":
                 console.log("Scissors beats Paper, Computer wins the round");
-                computerScore += 1;
+                //computerScore += 1;
+                break
         }
     } else if (humanChoice == 'scissors') {
         switch (computerChoice) {
             case "Rock":
                 console.log("Rock beats Scissors, Computer wins the round");
-                computerScore += 1;
+                //computerScore += 1;
+                break
             case "Paper":
                 console.log("Scissors beats Paper, Player wins the round");
-                humanScore += 1;
+                //humanScore += 1;
+                break
             case "Scissors":
                 console.log("The round is a tie");
+                break
         }
     }
 }
@@ -62,7 +71,9 @@ const playRound = function (humanChoice, computerChoice) {
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button)=>{
-    button.addEventListener("click"), playRound(button.id, getcomputerChoice())
+    button.addEventListener("click", ()=>{
+        playRound(button.id, getComputerChoice(OPTIONS_COUNT));
+    });
 });
 
 /*
