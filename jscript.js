@@ -20,49 +20,51 @@ function getHumanChoice(){
     }
 }*/
 
+const body = document.querySelector("body");
 const display = document.createElement("div");
 
+body.appendChild(display);
 const playRound = function (humanChoice, computerChoice) {
     if (humanChoice == 'rock') {
         switch (computerChoice) {
             case "Rock":
-                console.log("The round is a tie");
+                display.textContent = "The round is a tie";
                 break
             case "Paper":
-                console.log("Paper beats Rock, Computer wins the round");
+                display.textContent = "Paper beats Rock, Computer wins the round";
                 //computerScore += 1;
                 break
             case "Scissors":
-                console.log("Rock beats Scissors, Player wins the round");
+                display.textContent = "Rock beats Scissors, Player wins the round";
                 //humanScore += 1;
                 break
         }
     } else if (humanChoice == 'paper') {
         switch (computerChoice) {
             case "Rock":
-                console.log("Paper beats Rock, Player wins the round");
+                display.textContent = "Paper beats Rock, Player wins the round";
                 //humanScore += 1;
                 break
             case "Paper":
-                console.log("The round is a tie");
+                display.textContent = "The round is a tie";
                 break
             case "Scissors":
-                console.log("Scissors beats Paper, Computer wins the round");
+                display.textContent = "Scissors beats Paper, Computer wins the round";
                 //computerScore += 1;
                 break
         }
     } else if (humanChoice == 'scissors') {
         switch (computerChoice) {
             case "Rock":
-                console.log("Rock beats Scissors, Computer wins the round");
+                display.textContent = "Rock beats Scissors, Computer wins the round";
                 //computerScore += 1;
                 break
             case "Paper":
-                console.log("Scissors beats Paper, Player wins the round");
+                display.textContent = "Scissors beats Paper, Player wins the round";
                 //humanScore += 1;
                 break
             case "Scissors":
-                console.log("The round is a tie");
+                display.textContent = "The round is a tie";
                 break
         }
     }
