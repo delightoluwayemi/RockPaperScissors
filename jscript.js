@@ -16,8 +16,18 @@ function getComputerChoice(OPTIONS_COUNT){
 }
 
 const body = document.querySelector("body");
+
+const messages = document.createElement("div");
+messages.classList.add("messages");
+
+body.appendChild(messages);
 const display = document.createElement("div");
+display.setAttribute["style","display:block"];
+display.classList.add("messages");
 const para = document.createElement("p");
+para.setAttribute["style", "display:block"];
+
+
 
 const playRound = function (humanChoice, computerChoice) {
     if (humanScore < 5 && computerScore < 5){
@@ -68,11 +78,13 @@ const playRound = function (humanChoice, computerChoice) {
     else if(humanScore == 5){
         display.textContent = `The score is COMPUTER:${computerScore} : PLAYER:${humanScore}.`;
         para.textContent = "PLAYER WINS!";
-        body.appendChild(para);
+        messages.appendChild(display);
+        messages.appendChild(para);
     }else if(computerScore == 5){
         display.textContent = `The score is COMPUTER:${computerScore} : PLAYER:${humanScore}.`;
         para.textContent = "COMPUTER WINS!";
-        body.appendChild(para);
+        messages.appendChild(display);
+        messages.appendChild(para);
     }
 }
 
