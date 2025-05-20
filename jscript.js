@@ -14,64 +14,69 @@ function getComputerChoice(OPTIONS_COUNT){
         return "Scissors";
     }
 }
-/*
-function getHumanChoice(){
-    let choice = prompt("What do you choose?").toLowerCase();
-    
-    if (choice == "rock" || choice == "paper" || choice == "scissors"){
-        return choice;
-    }
-}*/
 
 const body = document.querySelector("body");
 const display = document.createElement("div");
+const para = document.createElement("p");
 
-body.appendChild(display);
 const playRound = function (humanChoice, computerChoice) {
-    if (humanChoice == 'rock') {
-        switch (computerChoice) {
-            case "Rock":
-                display.textContent = "The round is a tie";
-                break
-            case "Paper":
-                computerScore += 1;
-                display.textContent = `Paper beats Rock, Computer wins the round. The computer has ${computerScore} points`;
-                break
-            case "Scissors":
-                humanScore += 1;
-                display.textContent = `Rock beats Scissors, Player wins the round.The human has ${humanScore} points`;
-                break
-        }
-    } else if (humanChoice == 'paper') {
-        switch (computerChoice) {
-            case "Rock":
-                humanScore += 1;
-                display.textContent = `Paper beats Rock, Player wins the round. The human has ${humanScore} points`;
-                break
-            case "Paper":
-                display.textContent = "The round is a tie";
-                break
-            case "Scissors":
-                computerScore += 1;
-                display.textContent = `Scissors beats Paper, Computer wins the round. The computer has ${computerScore} points`;
-                break
-        }
-    } else if (humanChoice == 'scissors') {
-        switch (computerChoice) {
-            case "Rock":
-                computerScore += 1;
-                display.textContent = `Rock beats Scissors, Computer wins the round. The computer has ${computerScore} points`;
-                break
-            case "Paper":
-                humanScore += 1;
-                display.textContent = `Scissors beats Paper, Player wins the round. The human has ${humanScore} points`;
-                break
-            case "Scissors":
-                display.textContent = "The round is a tie";
-                break
+    if (humanScore < 5 && computerScore < 5){
+        if (humanChoice == 'rock') {
+            switch (computerChoice) {
+                case "Rock":
+                    display.textContent = `The round is a tie. The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+                case "Paper":
+                    computerScore += 1;
+                    display.textContent = `Paper beats Rock, Computer wins the round. The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+                case "Scissors":
+                    humanScore += 1;
+                    display.textContent = `Rock beats Scissors, Player wins the round. The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+            }
+        } else if (humanChoice == 'paper') {
+            switch (computerChoice) {
+                case "Rock":
+                    humanScore += 1;
+                    display.textContent = `Paper beats Rock, Player wins the round.  The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+                case "Paper":
+                    display.textContent = `The round is a tie. The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+                case "Scissors":
+                    computerScore += 1;
+                    display.textContent = `Scissors beats Paper, Computer wins the round.  The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+            }
+        } else if (humanChoice == 'scissors') {
+            switch (computerChoice) {
+                case "Rock":
+                    computerScore += 1;
+                    display.textContent = `Rock beats Scissors, Computer wins the round.  The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+                case "Paper":
+                    humanScore += 1;
+                    display.textContent = `Scissors beats Paper, Player wins the round.  The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+                case "Scissors":
+                    display.textContent = `The round is a tie. The score is COMPUTER:${computerScore} : PLAYER:${humanScore}`;
+                    break
+            }
         }
     }
+    else if(humanScore == 5){
+        display.textContent = `The score is COMPUTER:${computerScore} : PLAYER:${humanScore}.`;
+        para.textContent = "PLAYER WINS!";
+        body.appendChild(para);
+    }else if(computerScore == 5){
+        display.textContent = `The score is COMPUTER:${computerScore} : PLAYER:${humanScore}.`;
+        para.textContent = "COMPUTER WINS!";
+        body.appendChild(para);
+    }
 }
+
+body.appendChild(display);
 
 const buttons = document.querySelectorAll("button");
 
@@ -81,60 +86,3 @@ buttons.forEach((button)=>{
     });
 });
 
-/*
-playGame();
-function playGame(){
-    let humanScore = 0;
-    let computerScore = 0;
-
-    const playRound = function(humanChoice, computerChoice) {
-        if (humanChoice == 'rock') {
-            switch (computerChoice) {
-                case "Rock":
-                    console.log("The round is a tie");
-                case "Paper":
-                    console.log("Paper beats Rock, Computer wins the round");
-                    computerScore += 1;
-                case "Scissors":
-                    console.log("Rock beats Scissors, Player wins the round");
-                    humanScore += 1;
-            }
-        } else if (humanChoice == 'paper') {
-            switch (computerChoice) {
-                case "Rock":
-                    console.log("Paper beats Rock, Player wins the round");
-                    humanScore += 1;
-                case "Paper":
-                    console.log("The round is a tie");
-                case "Scissors":
-                    console.log("Scissors beats Paper, Computer wins the round");
-                    computerScore += 1;
-            }
-        } else if (humanChoice == 'scissors') {
-            switch (computerChoice) {
-                case "Rock":
-                    console.log("Rock beats Scissors, Computer wins the round");
-                    computerScore += 1;
-                case "Paper":
-                    console.log("Scissors beats Paper, Player wins the round");
-                    humanScore += 1;
-                case "Scissors":
-                    console.log("The round is a tie");
-            }
-        }
-    }
-    for (i =0; i<5; i++){
-        humanChoice = getHumanChoice();
-        computerChoice = getComputerChoice(OPTIONS_COUNT);
-
-        playRound(humanChoice,computerChoice);
-    }
-
-    if (humanScore > computerScore){
-        console.log("Player wins the game");
-    }else if(computerScore > humanScore){
-        console.log("Computer wins");
-    }else{
-        console.log(`The game is a tie. The score is Computer: ${computerScore} : Player: ${humanScore}`);
-    }
-}*/
