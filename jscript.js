@@ -1,5 +1,8 @@
 const OPTIONS_COUNT = 3;
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(OPTIONS_COUNT){
     let randomInt = Math.floor(Math.random() * OPTIONS_COUNT);
 
@@ -31,37 +34,37 @@ const playRound = function (humanChoice, computerChoice) {
                 display.textContent = "The round is a tie";
                 break
             case "Paper":
-                display.textContent = "Paper beats Rock, Computer wins the round";
-                //computerScore += 1;
+                computerScore += 1;
+                display.textContent = `Paper beats Rock, Computer wins the round. The computer has ${computerScore} points`;
                 break
             case "Scissors":
-                display.textContent = "Rock beats Scissors, Player wins the round";
-                //humanScore += 1;
+                humanScore += 1;
+                display.textContent = `Rock beats Scissors, Player wins the round.The human has ${humanScore} points`;
                 break
         }
     } else if (humanChoice == 'paper') {
         switch (computerChoice) {
             case "Rock":
-                display.textContent = "Paper beats Rock, Player wins the round";
-                //humanScore += 1;
+                humanScore += 1;
+                display.textContent = `Paper beats Rock, Player wins the round. The human has ${humanScore} points`;
                 break
             case "Paper":
                 display.textContent = "The round is a tie";
                 break
             case "Scissors":
-                display.textContent = "Scissors beats Paper, Computer wins the round";
-                //computerScore += 1;
+                computerScore += 1;
+                display.textContent = `Scissors beats Paper, Computer wins the round. The computer has ${computerScore} points`;
                 break
         }
     } else if (humanChoice == 'scissors') {
         switch (computerChoice) {
             case "Rock":
-                display.textContent = "Rock beats Scissors, Computer wins the round";
-                //computerScore += 1;
+                computerScore += 1;
+                display.textContent = `Rock beats Scissors, Computer wins the round. The computer has ${computerScore} points`;
                 break
             case "Paper":
-                display.textContent = "Scissors beats Paper, Player wins the round";
-                //humanScore += 1;
+                humanScore += 1;
+                display.textContent = `Scissors beats Paper, Player wins the round. The human has ${humanScore} points`;
                 break
             case "Scissors":
                 display.textContent = "The round is a tie";
