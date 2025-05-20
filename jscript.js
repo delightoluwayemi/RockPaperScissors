@@ -20,6 +20,52 @@ function getHumanChoice(){
     }
 }
 
+const display = document.createElement("div");
+
+const playRound = function (humanChoice, computerChoice) {
+    if (humanChoice == 'rock') {
+        switch (computerChoice) {
+            case "Rock":
+                console.log("The round is a tie");
+            case "Paper":
+                console.log("Paper beats Rock, Computer wins the round");
+                computerScore += 1;
+            case "Scissors":
+                console.log("Rock beats Scissors, Player wins the round");
+                humanScore += 1;
+        }
+    } else if (humanChoice == 'paper') {
+        switch (computerChoice) {
+            case "Rock":
+                console.log("Paper beats Rock, Player wins the round");
+                humanScore += 1;
+            case "Paper":
+                console.log("The round is a tie");
+            case "Scissors":
+                console.log("Scissors beats Paper, Computer wins the round");
+                computerScore += 1;
+        }
+    } else if (humanChoice == 'scissors') {
+        switch (computerChoice) {
+            case "Rock":
+                console.log("Rock beats Scissors, Computer wins the round");
+                computerScore += 1;
+            case "Paper":
+                console.log("Scissors beats Paper, Player wins the round");
+                humanScore += 1;
+            case "Scissors":
+                console.log("The round is a tie");
+        }
+    }
+}
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button)=>{
+    button.addEventListener("click"), playRound(button.id, getcomputerChoice())
+});
+
+/*
 playGame();
 function playGame(){
     let humanScore = 0;
@@ -75,4 +121,4 @@ function playGame(){
     }else{
         console.log(`The game is a tie. The score is Computer: ${computerScore} : Player: ${humanScore}`);
     }
-}
+}*/
